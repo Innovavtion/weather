@@ -1,4 +1,4 @@
-<a href="https://www.figma.com/file/b1OB7hsG76yofG9FU2Xrow/Weather-App?node-id=0%3A1&t=Aub7sscuBbFU5lgX-1" title="Figma link"><img src="../weather-react/design/banner/Banner.png" alt="Weather-App"></a>
+<a href="https://www.figma.com/file/b1OB7hsG76yofG9FU2Xrow/Weather-App?node-id=0%3A1&t=Aub7sscuBbFU5lgX-1" title="Figma link"><img src="https://github.com/Innovavtion/weather-react/blob/main/design/banner/Banner.png" alt="Weather-App"></a>
 
 **Description :** Маленький проекта для просмотра погоды.
 
