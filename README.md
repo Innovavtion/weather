@@ -6,13 +6,14 @@
 
 **Linters and Formatters :** Eslint, Prettier.
 
-**Target :** Цель научится работать с TypeScript, TailwindCSS. Также подружить TypeScript c Eslint.
+**Target :** Цель научится работать с TypeScript, TailwindCSS.
 
 **API :** [weather-api](https://github.com/robertoduessmann/weather-api), [open-weather](https://openweathermap.org/), [gismeteo](https://www.gismeteo.ru/api/#description).
 
 **Tasks :**
 
-- [x] Найти api для получения данных о погоде
-- [ ] Научиться работать с TypeScript
-- [ ] Научиться работать с TailwindCSS
+- [x] Найти **API** для получения данных о погоде
+- [ ] Научиться работать с **TypeScript**
+- [ ] Научиться работать с **TailwindCSS**
 - [ ] Реализовать хорошую верстку
+- [ ] Реализовать функционал проекта
