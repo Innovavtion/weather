@@ -8,7 +8,7 @@
 
 **Target :** Цель научится работать с TypeScript, TailwindCSS. Также подружить TypeScript c Eslint.
 
-**API :** [weather-api](https://github.com/robertoduessmann/weather-api), [open-weather](https://openweathermap.org/).
+**API :** [weather-api](https://github.com/robertoduessmann/weather-api), [open-weather](https://openweathermap.org/), [gismeteo](https://www.gismeteo.ru/api/#description).
 
 **Tasks :**
 
