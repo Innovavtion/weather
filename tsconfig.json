@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5", // Целевая версия ECMAScript
+    "lib": ["dom", "dom.iterable", "esnext"], // Список файлов библиотеки для включения в компиляцию
+    "allowJs": true, // Разрешить компиляцию файлов JavaScript
+    "skipLibCheck": true, // Пропустить проверку типо всех файлов объявлений
+    "esModuleInterop": true, // Отключает импорт пространства имен
+    "allowSyntheticDefaultImports": true, // Разрешить импорт по умолчанию из модулей без экспорта по умолчанию
+    "strict": true, // Включить все параметры строгой проверки типов
+    "forceConsistentCasingInFileNames": true, // Запрещаем ссылки с несогласованным регистром на один и тот же файл.
+    "noFallthroughCasesInSwitch": true, // Сообщать об ошибках для случаев падения в инструкции switch
+    "module": "esnext", // Указываем генерацию кода модуля
+    "moduleResolution": "node", // Разрешить модули в стиле Node.js
+    "resolveJsonModule": true, // Включить модули, импортированные с расширением .json
+    "isolatedModules": true, // Безоговорочно генерировать импорт для неразрешенных файлов
+    "noEmit": true, // Не выводить вывод (то есть не компилировать код, а только выполнять проверку типа)
+    "jsx": "react-jsx" // Поддержка JSX в файлах .tsx
+  },
+  "include": [
+    "src" // Файлы TypeScript должны ввести проверку
+  ]
+}
