@@ -4,4 +4,32 @@
 
 body {
   background-color: #111827;
+  overflow: hidden;
+}
+
+/* Адаптивность md > lg > xl */
+
+/* Это дерективы - нужны чтобы небыло срача в классах компонентов */
+.title-text {
+  @apply text-white text-center font-bold text-5xl my-28;
+}
+
+.weather-card-container {
+  @apply relative overflow-hidden flex justify-center items-center;
+}
+
+.weather-card {
+  @apply container bg-white rounded-lg w-64 h-80;
+}
+
+.weather-card-active {
+  @apply shadow-md h-96 lg:w-80;
+}
+
+.weather-card-unactive {
+  @apply sm:hidden md:hidden lg:block xl:block;
+}
+
+.active-day {
+  @apply mx-16;
 }

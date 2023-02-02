@@ -2,7 +2,12 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    //Сюда можно вписывать кастомные классы tailwind
+    extend: {
+      height: {
+        'mobile-card': '1000px',
+      },
+    },
   },
   plugins: [],
 };
