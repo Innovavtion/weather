@@ -4,10 +4,15 @@ module.exports = {
   theme: {
     //Сюда можно вписывать кастомные классы tailwind
     extend: {
-      //Для супер маленьких телефон
+      //Для адаптивки
       screens: {
-        mini: '325px',
-        'super-mini': '285px',
+        xll: '1920px',
+        lg: '916px',
+        md: '768px',
+        sm: '576px',
+        xs: '376px',
+        xss: '325px',
+        mini: '275px',
       },
     },
   },
