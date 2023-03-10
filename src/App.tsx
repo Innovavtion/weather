@@ -18,7 +18,7 @@ function App() {
         name="setting"
         color="000000"
         size="64"
-        className="duration-300 hover:scale-105 w-14 h-14 md:w-14 md:h-14"
+        className="duration-300 hover:scale-110 w-14 h-14 md:w-14 md:h-14"
       />
     </div>
   );
