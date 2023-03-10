@@ -39,7 +39,7 @@ body {
 }
 
 .weather-card-container {
-  @apply overflow-hidden flex justify-center items-center py-12 xll:py-16;
+  @apply overflow-hidden flex justify-center items-center py-12 px-3 xll:py-16;
 }
 
 .weather-card {
@@ -49,13 +49,13 @@ body {
 .left-card {
   transform: rotateY(25deg);
   box-shadow: 15px 10px 15px 1px rgba(0, 0, 0, 0.45);
-  @apply bg-gradient-to-r from-gray-900;
+  @apply bg-gradient-to-r from-gray-900 transition duration-500 hover:from-gray-300;
 }
 
 .right-card {
   transform: rotateY(25deg);
   box-shadow: -15px 10px 15px 1px rgba(0, 0, 0, 0.45);
-  @apply bg-gradient-to-l from-gray-900;
+  @apply bg-gradient-to-l from-gray-900 hover:transition hover:duration-500 hover:from-gray-300;
 }
 
 .weather-card-active {
@@ -67,6 +67,11 @@ body {
   @apply mx-16 xs:mx-10;
 }
 
+.icons-card {
+  margin: auto;
+  @apply mt-16 drop-shadow-lg;
+}
+
 .icon-setting {
-  @apply duration-300 hover:scale-110 w-14 h-14 md:w-14 md:h-14;
+  @apply duration-300 hover:scale-110 w-14 h-14 md:w-14 md:h-14 hover:rotate-45;
 }
