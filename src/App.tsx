@@ -14,12 +14,7 @@ function App() {
         </div>
         <div className="weather-card right-card">Right Card</div>
       </div>
-      <Icons
-        name="setting"
-        color="000000"
-        size="64"
-        className="duration-300 hover:scale-110 w-14 h-14 md:w-14 md:h-14"
-      />
+      <Icons name="setting" color="000000" size="64" className="icon-setting" />
     </div>
   );
 }

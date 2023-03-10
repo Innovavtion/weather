@@ -66,3 +66,7 @@ body {
 .active-day {
   @apply mx-16 xs:mx-10;
 }
+
+.icon-setting {
+  @apply duration-300 hover:scale-110 w-14 h-14 md:w-14 md:h-14;
+}
