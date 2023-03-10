@@ -43,19 +43,23 @@ body {
 }
 
 .weather-card {
-  @apply container bg-white rounded-lg text-center duration-500 hover:scale-105 h-80 w-64;
+  background-image: url(../public/background-card.jpg);
+  background-size: 135%;
+  background-position: top;
+  background-repeat: no-repeat;
+  @apply container bg-gray-900 rounded-lg text-center duration-500 hover:scale-105 h-80 w-64;
 }
 
 .left-card {
-  transform: rotateY(25deg);
+  transform: rotateY(15deg);
   box-shadow: 15px 10px 15px 1px rgba(0, 0, 0, 0.45);
-  @apply bg-gradient-to-r from-gray-900 transition duration-500 hover:from-gray-300;
+  /* @apply bg-gradient-to-r from-gray-900 hover:transition hover:duration-500 hover:from-gray-300; */
 }
 
 .right-card {
-  transform: rotateY(25deg);
+  transform: rotateY(15deg);
   box-shadow: -15px 10px 15px 1px rgba(0, 0, 0, 0.45);
-  @apply bg-gradient-to-l from-gray-900 hover:transition hover:duration-500 hover:from-gray-300;
+  /* @apply bg-gradient-to-l from-gray-900 hover:transition hover:duration-500 hover:from-gray-300; */
 }
 
 .weather-card-active {
@@ -69,7 +73,7 @@ body {
 
 .icons-card {
   margin: auto;
-  @apply mt-16 drop-shadow-lg;
+  @apply mt-14 drop-shadow-lg;
 }
 
 .icon-setting {
