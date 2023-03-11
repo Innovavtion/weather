@@ -13,7 +13,10 @@ function App() {
           <Icons name="cloud-shtil" color="#ffffff" size="75" className="icons-card" />
         </div>
         <div className="weather-card weather-card-active active-day">
+          <div className="day">Суббота, 11 марта</div>
           <Icons name="cloud-rain-storm" color="#ffffff" size="100" className="icons-card" />
+          <div className="temperature">11°С</div>
+          <div className="description">Облачно</div>
         </div>
         <div className="weather-card right-card">
           <Icons name="sun" color="#ffffff" size="75" className="icons-card" />
