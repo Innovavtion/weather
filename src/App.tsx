@@ -14,9 +14,25 @@ function App() {
         </div>
         <div className="weather-card weather-card-active active-day">
           <div className="day">Суббота, 11 марта</div>
-          <Icons name="cloud-rain-storm" color="#ffffff" size="100" className="icons-card" />
+          <Icons name="cloud-rain-storm" color="#ffffff" size="110" className="icons-card" />
           <div className="temperature">11°С</div>
           <div className="description">Облачно</div>
+          <div className="description-info">
+            <div className="humidity">
+              <Icons name="cloud-rain-storm" color="#ffffff" size="40" className="mini-icons-card"></Icons>
+              <div className="humidity-info">
+                <div className="humidity-number">80%</div>
+                <div className="humidity-text">Humindity</div>
+              </div>
+            </div>
+            <div className="wind-speed">
+              <Icons name="cloud-rain-storm" color="#ffffff" size="40" className="mini-icons-card"></Icons>
+              <div className="humidity-info">
+                <div className="humidity-number">3Km/h</div>
+                <div className="humidity-text">Wind Speed</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="weather-card right-card">
           <Icons name="sun" color="#ffffff" size="75" className="icons-card" />
