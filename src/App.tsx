@@ -19,17 +19,17 @@ function App() {
           <div className="description">Облачно</div>
           <div className="description-info">
             <div className="humidity">
-              <Icons name="cloud-rain-storm" color="#ffffff" size="40" className="mini-icons-card"></Icons>
-              <div className="humidity-info">
-                <div className="humidity-number">80%</div>
-                <div className="humidity-text">Humindity</div>
+              <Icons name="humidity" color="#ffffff" size="35" className="mini-icons-card"></Icons>
+              <div className="description-text">
+                <div>80%</div>
+                <div>Humidity</div>
               </div>
             </div>
             <div className="wind-speed">
-              <Icons name="cloud-rain-storm" color="#ffffff" size="40" className="mini-icons-card"></Icons>
-              <div className="humidity-info">
-                <div className="humidity-number">3Km/h</div>
-                <div className="humidity-text">Wind Speed</div>
+              <Icons name="wind" color="#ffffff" size="40" className="mini-icons-card"></Icons>
+              <div className="description-text">
+                <div>3Km/h</div>
+                <div>Wind Speed</div>
               </div>
             </div>
           </div>

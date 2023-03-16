@@ -103,7 +103,12 @@ body {
   @apply justify-center items-center mt-7;
 }
 
+/* расположил элементы по центру вертикали */
 .humidity,
 .wind-speed {
-  @apply px-3;
+  @apply px-3 items-center;
+}
+
+.description-text {
+  @apply text-gray-50 text-sm m-1.5;
 }
