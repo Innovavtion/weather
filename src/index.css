@@ -77,7 +77,7 @@ body {
 }
 
 .icon-setting {
-  @apply duration-300 hover:scale-110 w-14 h-14 md:w-14 md:h-14 hover:rotate-45;
+  @apply duration-300 hover:scale-110 w-14 h-14 md:w-14 md:h-14 hover:rotate-45 cursor-pointer;
 }
 
 .day {
@@ -97,11 +97,11 @@ body {
 }
 
 .description {
-  @apply text-gray-50 text-lg mt-2;
+  @apply text-gray-50 text-lg mt-1;
 }
 
 .active-day > .description {
-  @apply text-xl;
+  @apply text-xl mt-2;
 }
 
 /* несколько классов, с флекс */
@@ -112,7 +112,7 @@ body {
 }
 
 .description-info {
-  @apply justify-center items-center mt-3 text-xs;
+  @apply justify-center items-center mt-4 text-xs;
 }
 
 .active-day > .description-info {
@@ -127,4 +127,9 @@ body {
 
 .description-text {
   @apply text-gray-50 m-1.5;
+}
+
+.active-day > .description-info > .humidity > .description-text,
+.active-day > .description-info > .wind-speed > .description-text {
+  @apply m-2;
 }

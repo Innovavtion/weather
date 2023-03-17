@@ -57,7 +57,7 @@ function App() {
           <div className="day">Суббота, 12 марта</div>
           <Icons name="sun" color="#ffffff" size="85" className="icons-card" />
           <div className="temperature">11°С</div>
-          <div className="description">Облачно</div>
+          <div className="description">Солнечно</div>
           <div className="description-info">
             <div className="humidity">
               <Icons name="humidity" color="#ffffff" size="27" className="mini-icons-card"></Icons>
