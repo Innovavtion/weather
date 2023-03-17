@@ -81,15 +81,27 @@ body {
 }
 
 .day {
-  @apply text-gray-50 text-sm mt-5 inline-block bg-gray-800 py-1 px-3 rounded-full shadow-inner shadow-black drop-shadow-lg;
+  @apply text-gray-50 text-xs mt-5 inline-block bg-gray-800 py-1 px-3 rounded-full shadow-inner shadow-black drop-shadow-lg;
+}
+
+.active-day > .day {
+  @apply text-sm mt-5;
 }
 
 .temperature {
-  @apply uppercase text-gray-50 text-3xl mt-5;
+  @apply uppercase text-gray-50 text-2xl mt-4;
+}
+
+.active-day > .temperature {
+  @apply text-3xl mt-4;
 }
 
 .description {
-  @apply text-gray-50 text-xl mt-2;
+  @apply text-gray-50 text-lg mt-2;
+}
+
+.active-day > .description {
+  @apply text-xl;
 }
 
 /* несколько классов, с флекс */
@@ -100,7 +112,11 @@ body {
 }
 
 .description-info {
-  @apply justify-center items-center mt-7;
+  @apply justify-center items-center mt-3 text-xs;
+}
+
+.active-day > .description-info {
+  @apply mt-7 text-sm;
 }
 
 /* расположил элементы по центру вертикали */
@@ -110,5 +126,5 @@ body {
 }
 
 .description-text {
-  @apply text-gray-50 text-sm m-1.5;
+  @apply text-gray-50 m-1.5;
 }
