@@ -76,7 +76,10 @@ function App() {
           </div>
         </div>
       </div>
-      <Icons name="setting" color="000000" size="64" className="icon-setting" />
+      <div className="setting-content">
+        <Icons name="setting" color="000000" size="64" className="icon-setting" />
+        <div className="background-setting"></div>
+      </div>
     </div>
   );
 }

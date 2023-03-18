@@ -5,6 +5,7 @@
 body {
   background-color: #111827;
   overflow: hidden;
+  user-select: none;
 }
 
 /* Для горизонтальной адаптивки телефона*/
@@ -76,10 +77,6 @@ body {
   @apply mt-5 drop-shadow-lg;
 }
 
-.icon-setting {
-  @apply duration-300 hover:scale-110 w-14 h-14 md:w-14 md:h-14 hover:rotate-45 cursor-pointer;
-}
-
 .day {
   @apply text-gray-50 text-xs mt-5 inline-block bg-gray-800 py-1 px-3 rounded-full shadow-inner shadow-black drop-shadow-lg;
 }
@@ -132,4 +129,38 @@ body {
 .active-day > .description-info > .humidity > .description-text,
 .active-day > .description-info > .wind-speed > .description-text {
   @apply m-2;
+}
+
+.background-setting {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 47.35%;
+  z-index: 1;
+}
+
+.setting-content {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+@keyframes background-setting {
+  0% {
+    background-color: #1f2a41;
+  }
+  100% {
+    transform: scale(350);
+    background-color: #1f2a41;
+  }
+}
+
+.icon-setting {
+  z-index: 2;
+  @apply duration-500 hover:scale-110 w-14 h-14 md:w-14 md:h-14 hover:rotate-45 cursor-pointer;
+}
+
+.setting-content:hover .background-setting {
+  animation: background-setting 5s;
 }
