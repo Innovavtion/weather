@@ -131,7 +131,19 @@ body {
   @apply m-2;
 }
 
-.background-setting {
+/* Style and Animation for menu */
+.menu {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.menu-icon {
+  z-index: 2;
+  @apply duration-500 hover:scale-110 w-14 h-14 md:w-14 md:h-14 hover:rotate-45 cursor-pointer;
+}
+
+.menu-background {
   border-radius: 100%;
   width: 50px;
   height: 50px;
@@ -140,13 +152,16 @@ body {
   z-index: 1;
 }
 
-.setting-content {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+.menu-functional {
+  position: absolute;
+  color: white;
+  z-index: 1;
+  top: 95%;
+  right: 45%;
+  visibility: hidden;
 }
 
-@keyframes background-setting {
+@keyframes menu-background-animation {
   0% {
     background-color: #1f2a41;
   }
@@ -156,11 +171,20 @@ body {
   }
 }
 
-.icon-setting {
-  z-index: 2;
-  @apply duration-500 hover:scale-110 w-14 h-14 md:w-14 md:h-14 hover:rotate-45 cursor-pointer;
+@keyframes menu-functional-animation {
+  15% {
+    visibility: hidden;
+  }
+  100% {
+    top: 40%;
+    visibility: visible;
+  }
 }
 
-.setting-content:hover .background-setting {
-  animation: background-setting 5s;
+.menu:hover .menu-background {
+  animation: menu-background-animation 5s;
+}
+
+.menu:hover .menu-functional {
+  animation: menu-functional-animation 750ms;
 }

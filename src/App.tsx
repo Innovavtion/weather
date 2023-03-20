@@ -76,9 +76,13 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="setting-content">
-        <Icons name="setting" color="000000" size="64" className="icon-setting" />
-        <div className="background-setting"></div>
+      <div className="menu">
+        <Icons name="setting" color="000000" size="64" className="menu-icon" />
+        <div className="menu-background"></div>
+        <div className="menu-functional">
+          <div>Выбрать город</div>
+          <div>Выбрать город</div>
+        </div>
       </div>
     </div>
   );
