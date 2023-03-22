@@ -138,9 +138,13 @@ body {
   align-items: center;
 }
 
+.menu-checkbox {
+  display: none;
+}
+
 .menu-icon {
   z-index: 2;
-  @apply duration-500 hover:scale-110 w-14 h-14 md:w-14 md:h-14 hover:rotate-45 cursor-pointer;
+  @apply duration-500 w-14 h-14 md:w-14 md:h-14 cursor-pointer;
 }
 
 .menu-background {
@@ -148,6 +152,7 @@ body {
   width: 50px;
   height: 50px;
   position: absolute;
+  background-color: #1f2a41;
   left: 47.35%;
   z-index: 1;
 }
@@ -156,12 +161,12 @@ body {
   position: absolute;
   color: white;
   z-index: 1;
-  top: 95%;
+  top: 83%;
   right: 45%;
   visibility: hidden;
 }
 
-@keyframes menu-background-animation {
+/* @keyframes menu-background-animation {
   0% {
     background-color: #1f2a41;
   }
@@ -171,20 +176,43 @@ body {
   }
 }
 
+@keyframes menu-background-animation-uncheck {
+  0% {
+    background-color: #1f2a41;
+  }
+}
+
 @keyframes menu-functional-animation {
   15% {
-    visibility: hidden;
-  }
-  100% {
-    top: 40%;
     visibility: visible;
   }
+  100% {
+    top: 83%;
+    visibility: hidden;
+  }
+} */
+
+.menu-checkbox:checked + .menu .button-icon .menu-icon {
+  transition-duration: 750ms;
+  transform: rotate(90deg) scale(1.25);
 }
 
-.menu:hover .menu-background {
-  animation: menu-background-animation 5s;
+.menu-checkbox:checked + .menu .menu-background {
+  transition-duration: 3.5s;
+  transform: scale(350);
 }
 
-.menu:hover .menu-functional {
-  animation: menu-functional-animation 750ms;
+.menu-checkbox:not(:checked) + .menu .menu-background {
+  transition-duration: 500ms;
+  transform: scale(0);
+}
+
+.menu-checkbox:checked + .menu .menu-functional {
+  transition-duration: 750ms;
+  top: 40%;
+  visibility: visible;
+}
+
+.button-icon {
+  z-index: 3;
 }

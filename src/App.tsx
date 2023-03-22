@@ -1,8 +1,10 @@
 import React from 'react';
+import { useState } from 'react';
 import Icons from './components/icons/icons';
 
 //Надо будет переписать компонент
 function App() {
+  const [value, setValue] = useState(false);
   const hello: string = 'Weather App';
 
   return (
@@ -76,8 +78,11 @@ function App() {
           </div>
         </div>
       </div>
+      <input type="checkbox" className="menu-checkbox" checked={value} readOnly />
       <div className="menu">
-        <Icons name="setting" color="000000" size="64" className="menu-icon" />
+        <button onClick={() => setValue(!value)} className="button-icon">
+          <Icons name="setting" color="000000" size="64" className="menu-icon" />
+        </button>
         <div className="menu-background"></div>
         <div className="menu-functional">
           <div>Выбрать город</div>
