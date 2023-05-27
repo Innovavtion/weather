@@ -15,8 +15,40 @@ function Menu() {
         </button>
         <div className="menu-background"></div>
         <div className="menu-functional">
-          <div>Выбрать город</div>
-          <div>Выбрать город</div>
+          <select>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+            <option value="Tomsk">Томск</option>
+            <option value="Novosibirsk">Новосибирск</option>
+          </select>
         </div>
       </div>
     </div>

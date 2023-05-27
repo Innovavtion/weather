@@ -158,8 +158,17 @@ body {
   color: white;
   z-index: 1;
   top: 83%;
-  right: 45%;
+  right: 36%;
   visibility: hidden;
+}
+
+.menu-functional > select {
+  @apply bg-gray-900 w-64 rounded-lg border-8 border-transparent shadow-md font-medium cursor-pointer
+    outline-none;
+}
+
+.menu-functional > select > option {
+  @apply font-medium;
 }
 
 /* @keyframes menu-background-animation {
@@ -194,8 +203,8 @@ body {
 }
 
 .menu-checkbox:checked + .menu .menu-background {
-  transition-duration: 3.5s;
-  transform: scale(350);
+  transition-duration: 500ms;
+  transform: scale(14);
 }
 
 .menu-checkbox:not(:checked) + .menu .menu-background {
@@ -204,9 +213,14 @@ body {
 }
 
 .menu-checkbox:checked + .menu .menu-functional {
-  transition-duration: 750ms;
-  top: 40%;
+  transition-duration: 1000ms;
+  top: 70%;
   visibility: visible;
+}
+
+.menu-checkbox:not(:checked) + .menu .menu-functional {
+  transition-duration: 125ms;
+  visibility: hidden;
 }
 
 .button-icon {
