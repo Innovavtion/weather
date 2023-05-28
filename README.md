@@ -1,6 +1,6 @@
 <a href="https://www.figma.com/file/b1OB7hsG76yofG9FU2Xrow/Weather-App?node-id=0%3A1&t=Aub7sscuBbFU5lgX-1" title="Figma link"><img src="https://github.com/Innovavtion/weather-react/blob/main/design/banner/Banner.png" alt="Weather-App"></a>
 
-**Description :** Маленький проекта для просмотра погоды.
+**Description :** Маленький проект для просмотра погоды.
 
 **Stack :** TypeScript, React, TailwindCSS.
 
@@ -20,11 +20,9 @@
 
 **Expand Application :**
 
-1. `npm install`
-2. `npm start`
+1. `npm/yarn install`
+2. `npm/yarn start`
 
 **Additional :**
 
-1. Надо добить прослойку для иконок, с размерами поиграться.
-2. Иконки так себе, ну потом если что поменять можно.
-3. Надо сделать планый переход цвета в левой и правой картах
+1. Переписать анимации для меню

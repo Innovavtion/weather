@@ -13,9 +13,9 @@ function App() {
     <div className="weather-app-container">
       <h1 className="title-text">{hello}</h1>
       <div className="weather-card-container">
-        <Cards weather={WeatherDatas[0]} />
-        <Cards weather={WeatherDatas[1]} />
-        <Cards weather={WeatherDatas[2]} />
+        {WeatherDatas.map((weather) => (
+          <Cards weather={weather} key={weather.id} />
+        ))}
       </div>
       <Menu />
     </div>

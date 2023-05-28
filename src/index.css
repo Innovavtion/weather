@@ -221,7 +221,7 @@ body {
 
 .menu-checkbox:not(:checked) + .menu .menu-functional {
   transition-duration: 155ms;
-  transform: scale(0.1);
+  transform: scale(0.2);
   visibility: hidden;
 }
 
