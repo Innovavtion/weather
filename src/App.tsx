@@ -1,20 +1,37 @@
-import React from 'react'; // Можно убрать, так как с 18 верси React это можно не указывать. Оставлю если нужно будет добавить хуки.
+import React, { useEffect, useState } from 'react'; // Можно убрать, так как с 18 верси React это можно не указывать. Оставлю если нужно будет добавить хуки.
+import axios from 'axios';
 
 import Menu from './components/menu/menu';
 import Cards from './components/cards/cards';
 
-import WeatherDatas from './data/Wethears';
+import { IWeatherModels } from './models';
 
 //Надо будет переписать компонент
 function App() {
-  const hello: string = 'Weather App';
+  // Start - Что нужно переписать
+  const [weather, setWeather] = useState<IWeatherModels[]>([]);
 
+  async function fetchProduct() {
+    const response = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=Tomsk&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
+    );
+    setWeather([...weather, response.data]);
+  }
+
+  useEffect(() => {
+    fetchProduct();
+  }, []);
+
+  console.log(weather);
+  // End
+
+  // Не очень хороший способ добавления парметра key (надо хотябы поставить значение index)
   return (
     <div className="weather-app-container">
-      <h1 className="title-text">{hello}</h1>
+      <h1 className="title-text">Weather App</h1>
       <div className="weather-card-container">
-        {WeatherDatas.map((weather) => (
-          <Cards weather={weather} key={weather.id} />
+        {weather.map((weather) => (
+          <Cards weather={weather} key="" />
         ))}
       </div>
       <Menu />
