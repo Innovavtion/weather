@@ -228,3 +228,17 @@ body {
 .button-icon {
   z-index: 3;
 }
+
+/* Простенькая анимация для лоудера */
+.loader {
+  animation: loader-animation 1.5s infinite linear;
+}
+
+@keyframes loader-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
