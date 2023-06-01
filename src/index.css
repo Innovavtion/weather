@@ -249,3 +249,13 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.icons-close-modal {
+  position: fixed;
+  right: 25px;
+  top: 15px;
+}
+
+.icons-close-modal:active {
+  transform: scale(0.9);
+}
