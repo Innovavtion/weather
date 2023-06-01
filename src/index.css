@@ -36,7 +36,7 @@ body {
 }
 
 .title-text {
-  @apply text-white text-center font-bold text-3xl xl:text-4xl;
+  @apply text-white text-center font-bold text-3xl xl:text-4xl mt-32;
 }
 
 .weather-card-container {
@@ -130,7 +130,7 @@ body {
 /* Style and Animation for menu */
 .menu {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column;
   align-items: center;
 }
 
@@ -147,20 +147,27 @@ body {
   border-radius: 100%;
   width: 50px;
   height: 50px;
-  position: absolute;
+  position: relative;
   background-color: #1f2a41;
-  left: 47.35%;
+  top: -128px;
   z-index: 1;
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.35);
 }
 
 .menu-functional {
-  position: absolute;
+  position: relative;
+  top: -55px;
   color: white;
-  z-index: 1;
-  top: 87%;
-  right: 36%;
+  z-index: 2;
   visibility: hidden;
+}
+
+.menu-functional > .icons-card:hover {
+  cursor: pointer;
+}
+
+.menu-functional > button:active {
+  transform: scale(0.9);
 }
 
 .menu-functional > select {
@@ -205,7 +212,7 @@ body {
 
 .menu-checkbox:checked + .menu .menu-background {
   transition-duration: 500ms;
-  transform: scale(14);
+  transform: scale(5.5);
 }
 
 .menu-checkbox:not(:checked) + .menu .menu-background {
@@ -215,7 +222,7 @@ body {
 
 .menu-checkbox:checked + .menu .menu-functional {
   transition-duration: 750ms;
-  top: 70%;
+  top: -150px;
   visibility: visible;
 }
 
@@ -229,7 +236,7 @@ body {
   z-index: 3;
 }
 
-/* Простенькая анимация для лоудера */
+/* Простенькая анимация для лоадера */
 .loader {
   animation: loader-animation 1.5s infinite linear;
 }

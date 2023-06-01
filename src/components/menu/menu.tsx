@@ -2,7 +2,12 @@ import React from 'react'; // Можно убрать, так как с 18 ве�
 
 import Icons from '../icons/icons';
 
-function Menu() {
+interface IModal {
+  modal: boolean;
+  setModal: any;
+}
+
+function Menu({ modal, setModal }: IModal) {
   //Вот и хук собственна.
   const [check, setCheck] = React.useState<boolean>(false);
 
@@ -13,43 +18,12 @@ function Menu() {
         <button onClick={() => setCheck(!check)} className="button-icon">
           <Icons name="setting" color="#111827" size="75" className="menu-icon" />
         </button>
-        <div className="menu-background"></div>
         <div className="menu-functional">
-          <select>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-            <option value="Tomsk">Томск</option>
-            <option value="Novosibirsk">Новосибирск</option>
-          </select>
+          <button onClick={() => setModal(!modal)} className="button-icon">
+            <Icons name={`location`} color="#ffffff" size={'50'} className="icons-card" />
+          </button>
         </div>
+        <div className="menu-background" />
       </div>
     </div>
   );
