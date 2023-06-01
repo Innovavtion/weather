@@ -11,7 +11,7 @@ function Menu() {
       <input type="checkbox" className="menu-checkbox" checked={check} readOnly />
       <div className="menu">
         <button onClick={() => setCheck(!check)} className="button-icon">
-          <Icons name="setting" color="000000" size="64" className="menu-icon" />
+          <Icons name="setting" color="#111827" size="75" className="menu-icon" />
         </button>
         <div className="menu-background"></div>
         <div className="menu-functional">

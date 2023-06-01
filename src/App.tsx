@@ -1,35 +1,15 @@
-import React, { useEffect, useState } from 'react'; // Можно убрать, так как с 18 верси React это можно не указывать. Оставлю если нужно будет добавить хуки.
-import axios from 'axios';
+import React from 'react'; // Можно убрать, так как с 18 верси React это можно не указывать. Оставлю если нужно будет добавить хуки.
 
 import Icons from './components/icons/icons';
 import Menu from './components/menu/menu';
 import Cards from './components/cards/cards';
 
-import { IWeatherModels } from './models';
+// Вынес логику в кастомный hooks
+import { useWeathers } from './hooks/weathers';
 
-//Надо будет переписать компонент
 function App() {
-  // Start - Что нужно переписать
-  const [weather, setWeather] = useState<IWeatherModels[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  async function fetchProduct() {
-    setLoading(true);
-    const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=Tomsk&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
-    );
-    setTimeout(() => {
-      setWeather([...weather, response.data]);
-      setLoading(false);
-    }, 500);
-  }
-
-  useEffect(() => {
-    fetchProduct();
-  }, []);
-
-  console.log(weather);
-  // End
+  // Использование хука
+  const { weather, error, loading } = useWeathers();
 
   // Не очень хороший способ добавления парметра key (надо хотябы поставить значение index)
   return (
@@ -38,7 +18,10 @@ function App() {
       <div className="weather-card-container">
         {/* Простенький лоадер start */}
         {loading && <Icons name={`loader`} color="#ffffff" size={'50'} className="icons-card loader" />}
-        {/* Простенький лоадер end */}
+
+        {/* Простенький вывод error */}
+        {error && <p className="text-center text-red-500">{error}</p>}
+
         {weather.map((weather) => (
           <Cards weather={weather} key="" />
         ))}
