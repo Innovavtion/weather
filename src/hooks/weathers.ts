@@ -16,10 +16,8 @@ export function useWeathers() {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=Tomsk&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
       );
-      setTimeout(() => {
-        setWeather([...weather, response.data]);
-        setLoading(false);
-      }, 500);
+      setWeather([...weather, response.data]);
+      setLoading(false);
     } catch (e: unknown) {
       const error = e as AxiosError;
       setLoading(false);

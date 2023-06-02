@@ -39,7 +39,7 @@ function Card({ weather }: CardProps) {
 
   return (
     <div className={`weather-card weather-card-active`}>
-      <div className="day">{day}</div>
+      <div className="day">{weather.name}</div>
       <Icons name={`cloud-shtil`} color="#ffffff" size={'115'} className="icons-card" />
       <div className="temperature">{`${Math.round(weather.main.temp)}°С`}</div>
       <div className="description">{weather.weather[0].main}</div>
