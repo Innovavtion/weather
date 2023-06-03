@@ -4,7 +4,7 @@ import axios, { AxiosError } from 'axios';
 
 // Логика app.tsx / Кастомный хук app.tsx
 
-export function useWeathers() {
+export function useWeathers(city: string) {
   const [weather, setWeather] = useState<IWeatherModels[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -13,10 +13,10 @@ export function useWeathers() {
     try {
       setError('');
       setLoading(true);
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=Tomsk&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
+      const { data } = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
       );
-      setWeather([...weather, response.data]);
+      setWeather([...weather, data]);
       setLoading(false);
     } catch (e: unknown) {
       const error = e as AxiosError;

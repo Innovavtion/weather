@@ -10,7 +10,7 @@ import { useWeathers } from './hooks/weathers';
 
 function App() {
   // Использование хука
-  const { weather, error, loading } = useWeathers();
+  const { weather, error, loading } = useWeathers('Томск');
   const [modal, setModal] = useState(false);
 
   // Не очень хороший способ добавления парметра key (надо хотябы поставить значение index)
