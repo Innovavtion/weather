@@ -8,9 +8,11 @@ import ModalLocation from './components/modal/modalLocation';
 // Вынес логику в кастомный hooks
 import { useWeathers } from './hooks/weathers';
 
+const CityAll: Array<string> = ['Томск', 'Новосибирск', 'Уфа'];
+
 function App() {
   // Использование хука
-  const { weather, error, loading } = useWeathers('Томск');
+  const { weather, error, loading } = useWeathers(CityAll);
   const [modal, setModal] = useState(false);
 
   // Не очень хороший способ добавления парметра key (надо хотябы поставить значение index)
@@ -28,8 +30,8 @@ function App() {
           {/* Простенький вывод error */}
           {error && <p className="text-center text-red-500">{error}</p>}
 
-          {weather.map((weather) => (
-            <Cards weather={weather} key="" />
+          {weather.map((weather, index) => (
+            <Cards weather={weather} key={index} />
           ))}
         </div>
         <Menu modal={modal} setModal={setModal} />
