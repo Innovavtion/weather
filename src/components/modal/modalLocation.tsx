@@ -13,11 +13,17 @@ export default function modalLocation({ modal, setModal, city, deleteCity, addCi
   const [text, setText] = useState('');
   const [limitCity, setLimitCity] = useState(false);
   const [existCity, setExistCity] = useState(false);
+  const [symbolText, setSymbolText] = useState(false);
 
   function changeText(currentText: string) {
     if (currentText.length <= 25) {
       setText(currentText);
     }
+  }
+
+  function isValid(currentText: string) {
+    const regexp = /^[а-яА-ЯЁё-]+$/;
+    return !regexp.test(currentText);
   }
 
   function textPrettier(currentText: string) {
@@ -31,7 +37,9 @@ export default function modalLocation({ modal, setModal, city, deleteCity, addCi
     currentText = textPrettier(currentText);
     setLimitCity(false);
     setExistCity(false);
+    setSymbolText(false);
     let result: boolean = false;
+    const symbolCheck: boolean = isValid(currentText);
 
     city.map((item) => {
       result = item === currentText ? true : false;
@@ -41,6 +49,8 @@ export default function modalLocation({ modal, setModal, city, deleteCity, addCi
       setLimitCity(true);
     } else if (result) {
       setExistCity(true);
+    } else if (symbolCheck) {
+      setSymbolText(true);
     } else if (currentText) {
       return addCity(currentText);
     }
@@ -55,7 +65,7 @@ export default function modalLocation({ modal, setModal, city, deleteCity, addCi
             <Icons name="close" color="#ffffff" size="20" />
           </button>
           <div className="flex justify-center text-white font-bold mb-5 text-xl">Настройки отображаемых городов</div>
-          <div className="flex mb-5">
+          <div className="flex mb-3">
             <input
               className="w-full rounded px-3 py-1 border-0"
               placeholder="Введите название города"
@@ -74,9 +84,12 @@ export default function modalLocation({ modal, setModal, city, deleteCity, addCi
             </button>
           </div>
           {limitCity && (
-            <p className="text-center text-red-500">{`Введено максимальное колличество городов (больше 3 нельзя)`}</p>
+            <p className="text-center text-red-500 text-xs">{`Введено максимальное колличество городов (больше 3 нельзя)`}</p>
           )}
-          {existCity && <p className="text-center text-red-500">{`Нельзя добавлять одинаковые города`}</p>}
+          {existCity && <p className="text-center text-red-500 text-xs">{`Нельзя добавлять одинаковые города`}</p>}
+          {symbolText && (
+            <p className="text-center text-red-500 text-xs mb-2">{`Только на кирилице, а также тере для городов с пробелом`}</p>
+          )}
           <div className="flex justify-center text-white font-bold">Список добавленных городов</div>
           <div className="flex justify-center text-white text-xs mb-2">Максимум 3 города</div>
           <div className="text-white">
