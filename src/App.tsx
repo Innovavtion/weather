@@ -8,6 +8,15 @@ import ModalLocation from './components/modal/modalLocation';
 // Вынес логику в кастомный hooks
 import { useWeathers } from './hooks/weathers';
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import './styles.css';
+// import required modules
+import { EffectCards } from 'swiper';
+
 function App() {
   const getCity = JSON.parse(localStorage.getItem('city')!) || [];
   localStorage.setItem('city', JSON.stringify(getCity.slice(0, 3)));
@@ -38,9 +47,18 @@ function App() {
 
             {city.length === 0 && <p className="text-center text-cyan-300">Добавте город в настройках</p>}
           </div>
-          {weather.map((weather, index) => (
-            <Cards weather={weather} key={index} />
-          ))}
+          <Swiper
+            effect={'cards'}
+            grabCursor={true}
+            cardsEffect={{ slideShadows: false, perSlideOffset: 7.5 }}
+            modules={[EffectCards]}
+          >
+            {weather.map((weather, index) => (
+              <SwiperSlide key={index}>
+                <Cards weather={weather} key={index} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         <Menu modal={modal} setModal={setModal} />
       </div>
