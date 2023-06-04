@@ -4,10 +4,35 @@ import axios, { AxiosError } from 'axios';
 
 // Логика app.tsx / Кастомный хук app.tsx
 
-export function useWeathers(city: Array<string>) {
+export function useWeathers(city: Array<string>, setCity: any) {
   const [weather, setWeather] = useState<IWeatherModels[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  function deleteCity(id: number) {
+    const newCity = [...city.filter((_, i) => i !== id)];
+    const weatherCity = [...weather.filter((_, i) => i !== id)];
+
+    // Обновляем список городов (название городов, погодная информация, обновление локально хранилища городов)
+    setCity(newCity);
+    setWeather(weatherCity);
+    localStorage.setItem('city', JSON.stringify(newCity));
+  }
+
+  async function addCity(textCity: string) {
+    const weatherResponse: Array<IWeatherModels> = [];
+    if (textCity !== '') {
+      const { data } = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${textCity}&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
+      );
+      weatherResponse.push(data);
+    }
+
+    // Обновляем список городов (название городов, погодная информация, обновление локально хранилища городов)
+    setCity([...city, textCity]);
+    setWeather([...weather, ...weatherResponse]);
+    localStorage.setItem('city', JSON.stringify([...city, textCity]));
+  }
 
   async function fetchProduct() {
     try {
@@ -16,21 +41,21 @@ export function useWeathers(city: Array<string>) {
       const weatherResponse: Array<IWeatherModels> = [];
 
       // Выглядит тупо, но через цикл асинхронные запросы не работают, тупо не рендерит компоненты, хотя данные есть
-      if (city[0] !== '') {
+      if (city[0] !== undefined) {
         const { data } = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
         );
         weatherResponse.push(data);
       }
 
-      if (city[1] !== '') {
+      if (city[1] !== undefined) {
         const { data } = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${city[1]}&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
         );
         weatherResponse.push(data);
       }
 
-      if (city[2] !== '') {
+      if (city[2] !== undefined) {
         const { data } = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${city[2]}&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
         );
@@ -50,5 +75,5 @@ export function useWeathers(city: Array<string>) {
     fetchProduct();
   }, []);
 
-  return { weather, error, loading };
+  return { weather, error, loading, deleteCity, addCity };
 }

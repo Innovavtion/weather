@@ -4,7 +4,7 @@ import IconsSVG from './icons.svg';
 
 interface IconProps {
   name: string;
-  color: string;
+  color?: string;
   size: string;
   className?: string;
 }

@@ -259,3 +259,11 @@ body {
 .icons-close-modal:active {
   transform: scale(0.9);
 }
+
+.city-modal {
+  @apply flex bg-gray-700 my-0.5 px-3 py-1 rounded;
+}
+
+.icon-modal-delete {
+  margin-left: auto;
+}
