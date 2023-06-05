@@ -40,7 +40,7 @@ body {
 }
 
 .weather-card-container {
-  @apply overflow-hidden flex justify-center items-center py-12 px-3 xll:py-16;
+  @apply overflow-hidden flex justify-center items-center py-0 xll:py-3;
 }
 
 .weather-card {
