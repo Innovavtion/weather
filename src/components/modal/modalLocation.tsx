@@ -4,46 +4,47 @@ import Icons from '../icons/icons';
 
 interface IModal {
   modal: boolean;
-  setModal: any;
   city: string[];
-  deleteCity: any;
-  addCity: any;
+  setModal(modal: boolean): void;
+  deleteCity(id: number): void;
+  addCity(textCity: string): void;
 }
-export default function modalLocation({ modal, setModal, city, deleteCity, addCity }: IModal) {
+
+export default function modalLocation({ modal, city, setModal, deleteCity, addCity }: IModal) {
   const [text, setText] = useState('');
   const [limitCity, setLimitCity] = useState(false);
   const [existCity, setExistCity] = useState(false);
   const [symbolText, setSymbolText] = useState(false);
 
-  function changeText(currentText: string) {
+  function changeText(currentText: string): void {
     if (currentText.length <= 25) {
       setText(currentText);
     }
   }
 
-  function isValid(currentText: string) {
+  function isValid(currentText: string): boolean {
     const regexp = /^[а-яА-ЯЁё-]+$/;
     return !regexp.test(currentText);
   }
 
-  function textPrettier(currentText: string) {
+  function textPrettier(currentText: string): string {
     currentText = currentText.trim().toLowerCase();
     setText('');
     if (!currentText) return currentText;
     return currentText[0].toUpperCase() + currentText.slice(1);
   }
 
-  function addNewCity(currentText: string) {
+  function addNewCity(currentText: string): void {
     currentText = textPrettier(currentText);
     setLimitCity(false);
     setExistCity(false);
     setSymbolText(false);
+    setText('');
     let result: boolean = false;
     const symbolCheck: boolean = isValid(currentText);
 
-    city.map((item) => {
-      result = item === currentText ? true : false;
-    });
+    // Проходимся по массиву и ищем одинаковый элемент, если есть возвращает false
+    result = city.some((item) => item === currentText);
 
     if (city.length >= 3) {
       setLimitCity(true);
@@ -59,7 +60,7 @@ export default function modalLocation({ modal, setModal, city, deleteCity, addCi
   return (
     <>
       <div className="fixed z-10 bg-black/50 top-0 left-0 right-0 bottom-0" onClick={() => setModal(!modal)} />
-      <div className="w-[500px] z-10 p-7 bg-gray-900 absolute top-1/3 left-1/2 -translate-x-1/2 drop-shadow-lg rounded-lg">
+      <div className="modal-container">
         <div className="">
           <button onClick={() => setModal(!modal)} className="button-icon icons-close-modal">
             <Icons name="close" color="#ffffff" size="20" />
@@ -70,14 +71,13 @@ export default function modalLocation({ modal, setModal, city, deleteCity, addCi
               className="w-full rounded px-3 py-1 border-0"
               placeholder="Введите название города"
               value={text}
-              onKeyDown={(e) => e.key === 'Enter' && addNewCity(text) && setText('')}
+              onKeyDown={(e) => e.key === 'Enter' && addNewCity(text)}
               onChange={(e) => changeText(e.target.value)}
             />
             <button
               className="flex justify-center bg-gray-700 text-white rounded p-2 ml-0.5"
               onClick={() => {
                 addNewCity(text);
-                setText('');
               }}
             >
               Добавить

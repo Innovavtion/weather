@@ -1,0 +1,62 @@
+.weather-card-container {
+  @apply overflow-hidden flex justify-center items-center py-0 xll:py-3;
+}
+
+.weather-card {
+  background-image: url(../../../public/background-card.jpg);
+  background-size: 135%;
+  background-position: top;
+  background-repeat: no-repeat;
+  @apply container bg-gray-900 rounded-lg text-center duration-500 hover:scale-105 h-80 w-64;
+}
+
+.weather-card-active {
+  box-shadow: 0px 15px 15px 1px rgba(0, 0, 0, 0.45);
+  @apply h-96 w-80 xs:min-w-0 xs:min-h-0 mx-16 xs:mx-10 xs:max-w-full xs:max-h-full;
+}
+
+.icons-card {
+  margin: auto;
+  @apply mt-5 drop-shadow-lg;
+}
+
+.day {
+  @apply text-gray-50 text-sm mt-5 inline-block bg-gray-800 py-1 px-3 rounded-full shadow-inner shadow-black drop-shadow-lg;
+}
+
+.temperature {
+  @apply uppercase text-gray-50 text-3xl mt-4;
+}
+
+.description {
+  @apply text-gray-50 text-xl mt-1;
+}
+
+.description-additionally {
+  @apply text-gray-50 text-xs font-thin;
+}
+
+/* несколько классов, с флекс */
+.description-info,
+.humidity,
+.wind-speed {
+  @apply flex;
+}
+
+.description-info {
+  @apply justify-center items-center mt-4 text-xs;
+}
+
+.weather-card-active > .description-info {
+  @apply mt-7 text-sm;
+}
+
+/* расположил элементы по центру вертикали */
+.humidity,
+.wind-speed {
+  @apply px-3 items-center;
+}
+
+.description-text {
+  @apply text-gray-50 m-1.5;
+}

@@ -1,0 +1,82 @@
+/* Style and Animation for menu */
+.menu {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.menu-icon {
+  z-index: 2;
+  @apply duration-500 w-14 h-14 md:w-14 md:h-14 cursor-pointer;
+}
+
+.menu-background {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background-color: #1f2a41;
+  top: -128px;
+  z-index: 1;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.35);
+}
+
+.menu-functional {
+  position: relative;
+  top: -55px;
+  color: white;
+  z-index: 2;
+  visibility: hidden;
+}
+
+.menu-functional > .icons-card:hover {
+  cursor: pointer;
+}
+
+.menu-functional > button:active {
+  transform: scale(0.9);
+}
+
+.menu-functional > select {
+  @apply bg-gray-900 w-64 rounded-lg border-8 border-transparent shadow-md font-medium cursor-pointer
+      outline-none;
+}
+
+.menu-functional > select > option {
+  @apply font-medium;
+}
+
+.menu-checkbox:checked + .menu .button-icon .menu-icon {
+  transition-duration: 750ms;
+  transform: rotate(135deg) scale(1.25);
+}
+
+.menu-checkbox:checked + .menu .menu-background {
+  transition-duration: 500ms;
+  transform: scale(5.5);
+}
+
+.menu-checkbox:not(:checked) + .menu .menu-background {
+  transition-duration: 500ms;
+  transform: scale(0);
+}
+
+.menu-checkbox:checked + .menu .menu-functional {
+  transition-duration: 750ms;
+  top: -150px;
+  visibility: visible;
+}
+
+.menu-checkbox:not(:checked) + .menu .menu-functional {
+  transition-duration: 155ms;
+  transform: scale(0.2);
+  visibility: hidden;
+}
+
+.button-icon {
+  z-index: 3;
+}

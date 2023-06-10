@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '/src/components/cards/cards.css';
+@import '/src/components/menu/menu.css';
+@import '/src/components/modal/modalLocation.css';
+
+/* background-color: #111827; */
+/* Адаптивность md > lg > xl */
+
 /* Перенес стили из файла styles.css, для работы со swiper*/
 body {
   background-color: #111827;
@@ -17,6 +24,21 @@ html,
 body {
   position: relative;
   height: 100%;
+}
+
+.weather-app-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  /* Это дерективы - нужны чтобы небыло срача в классах компонентов (tailwind)*/
+  @apply flex-col flex items-center space-y-6 lg:space-y-0 xll:space-y-12;
+}
+
+.title-text {
+  @apply text-white text-center font-bold text-3xl xl:text-4xl mt-32;
 }
 
 .swiper {
@@ -46,224 +68,11 @@ body {
   }
 }
 
-/* background-color: #111827; */
-/* Адаптивность md > lg > xl */
-
-/* Это дерективы - нужны чтобы небыло срача в классах компонентов */
-.weather-app-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  @apply flex-col flex items-center space-y-6 lg:space-y-0 xll:space-y-12;
-}
-
-.title-text {
-  @apply text-white text-center font-bold text-3xl xl:text-4xl mt-32;
-}
-
-.weather-card-container {
-  @apply overflow-hidden flex justify-center items-center py-0 xll:py-3;
-}
-
-.weather-card {
-  background-image: url(../public/background-card.jpg);
-  background-size: 135%;
-  background-position: top;
-  background-repeat: no-repeat;
-  @apply container bg-gray-900 rounded-lg text-center duration-500 hover:scale-105 h-80 w-64;
-}
-
-.left-card {
-  transform: rotateY(15deg);
-  box-shadow: 15px 10px 15px 1px rgba(0, 0, 0, 0.45);
-  /* @apply bg-gradient-to-r from-gray-900 hover:transition hover:duration-500 hover:from-gray-300; */
-}
-
-.right-card {
-  transform: rotateY(15deg);
-  box-shadow: -15px 10px 15px 1px rgba(0, 0, 0, 0.45);
-  /* @apply bg-gradient-to-l from-gray-900 hover:transition hover:duration-500 hover:from-gray-300; */
-}
-
-.weather-card-active {
-  box-shadow: 0px 15px 15px 1px rgba(0, 0, 0, 0.45);
-  @apply h-96 w-80 xs:min-w-0 xs:min-h-0 mx-16 xs:mx-10 xs:max-w-full xs:max-h-full;
-}
-
-.icons-card {
-  margin: auto;
-  @apply mt-5 drop-shadow-lg;
-}
-
-.day {
-  @apply text-gray-50 text-xs mt-5 inline-block bg-gray-800 py-1 px-3 rounded-full shadow-inner shadow-black drop-shadow-lg;
-}
-
-.weather-card-active > .day {
-  @apply text-sm mt-5;
-}
-
-.temperature {
-  @apply uppercase text-gray-50 text-2xl mt-4;
-}
-
-.weather-card-active > .temperature {
-  @apply text-3xl mt-4;
-}
-
-.description {
-  @apply text-gray-50 text-lg mt-1;
-}
-
-.weather-card-active > .description {
-  @apply text-xl mt-2;
-}
-
-/* несколько классов, с флекс */
-.description-info,
-.humidity,
-.wind-speed {
-  @apply flex;
-}
-
-.description-info {
-  @apply justify-center items-center mt-4 text-xs;
-}
-
-.weather-card-active > .description-info {
-  @apply mt-7 text-sm;
-}
-
-/* расположил элементы по центру вертикали */
-.humidity,
-.wind-speed {
-  @apply px-3 items-center;
-}
-
-.description-text {
-  @apply text-gray-50 m-1.5;
-}
-
-.weather-card-active > .description-info > .humidity > .description-text,
-.weather-card-active > .description-info > .wind-speed > .description-text {
-  @apply m-2;
-}
-
-/* Style and Animation for menu */
-.menu {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-}
-
-.menu-checkbox {
-  display: none;
-}
-
-.menu-icon {
-  z-index: 2;
-  @apply duration-500 w-14 h-14 md:w-14 md:h-14 cursor-pointer;
-}
-
-.menu-background {
-  border-radius: 100%;
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background-color: #1f2a41;
-  top: -128px;
-  z-index: 1;
-  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.35);
-}
-
-.menu-functional {
-  position: relative;
-  top: -55px;
-  color: white;
-  z-index: 2;
-  visibility: hidden;
-}
-
-.menu-functional > .icons-card:hover {
-  cursor: pointer;
-}
-
-.menu-functional > button:active {
-  transform: scale(0.9);
-}
-
-.menu-functional > select {
-  @apply bg-gray-900 w-64 rounded-lg border-8 border-transparent shadow-md font-medium cursor-pointer
-    outline-none;
-}
-
-.menu-functional > select > option {
-  @apply font-medium;
-}
-
-/* @keyframes menu-background-animation {
-  0% {
-    background-color: #1f2a41;
-  }
-  100% {
-    transform: scale(350);
-    background-color: #1f2a41;
-  }
-}
-
-@keyframes menu-background-animation-uncheck {
-  0% {
-    background-color: #1f2a41;
-  }
-}
-
-@keyframes menu-functional-animation {
-  15% {
-    visibility: visible;
-  }
-  100% {
-    top: 83%;
-    visibility: hidden;
-  }
-} */
-
-.menu-checkbox:checked + .menu .button-icon .menu-icon {
-  transition-duration: 750ms;
-  transform: rotate(135deg) scale(1.25);
-}
-
-.menu-checkbox:checked + .menu .menu-background {
-  transition-duration: 500ms;
-  transform: scale(5.5);
-}
-
-.menu-checkbox:not(:checked) + .menu .menu-background {
-  transition-duration: 500ms;
-  transform: scale(0);
-}
-
-.menu-checkbox:checked + .menu .menu-functional {
-  transition-duration: 750ms;
-  top: -150px;
-  visibility: visible;
-}
-
-.menu-checkbox:not(:checked) + .menu .menu-functional {
-  transition-duration: 155ms;
-  transform: scale(0.2);
-  visibility: hidden;
-}
-
-.button-icon {
-  z-index: 3;
-}
-
 /* Простенькая анимация для лоадера */
 .loader {
   animation: loader-animation 1.5s infinite linear;
+  position: fixed;
+  right: 46.9%;
 }
 
 @keyframes loader-animation {
@@ -273,22 +82,4 @@ body {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.icons-close-modal {
-  position: fixed;
-  right: 25px;
-  top: 15px;
-}
-
-.icons-close-modal:active {
-  transform: scale(0.9);
-}
-
-.city-modal {
-  @apply flex bg-gray-700 my-0.5 px-3 py-1 rounded;
-}
-
-.icon-modal-delete {
-  margin-left: auto;
 }

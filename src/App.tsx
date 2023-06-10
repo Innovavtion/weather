@@ -42,9 +42,11 @@ function App() {
             {loading && <Icons name={`loader`} color="#ffffff" size={'50'} className="icons-card loader" />}
 
             {/* Простенький вывод error */}
-            {error && <p className="text-center text-red-500">{error}</p>}
+            {error && <p className="text-center text-red-500 fixed right-[35.8%]">{error}</p>}
 
-            {city.length === 0 && <p className="text-center text-cyan-300">Добавте город в настройках</p>}
+            {city.length === 0 && (
+              <p className="text-center text-cyan-300 fixed right-[38.5%]">Добавте город в настройках</p>
+            )}
           </div>
           <Swiper
             effect={'cards'}

@@ -4,7 +4,7 @@ import Icons from '../icons/icons';
 
 interface IModal {
   modal: boolean;
-  setModal: any;
+  setModal(modal: boolean): void;
 }
 
 function Menu({ modal, setModal }: IModal) {
