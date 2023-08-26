@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; // Можно убрать, так как с 18 верси React это можно не указывать. Оставлю если нужно будет добавить хуки.
+import { useEffect, useState } from 'react'; // Можно убрать, так как с 18 верси React это можно не указывать. Оставлю если нужно будет добавить хуки.
 import { IWeatherModels } from '../models';
 import axios, { AxiosError } from 'axios';
 
@@ -23,7 +23,7 @@ export function useWeathers(city: Array<string>, setCity: any) {
     const weatherResponse: Array<IWeatherModels> = [];
     if (textCity !== '') {
       const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${textCity}&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${textCity}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`,
       );
       weatherResponse.push(data);
     }
@@ -43,21 +43,21 @@ export function useWeathers(city: Array<string>, setCity: any) {
       // Выглядит тупо, но через цикл асинхронные запросы не работают, тупо не рендерит компоненты, хотя данные есть
       if (city[0] !== undefined) {
         const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
+          `https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`,
         );
         weatherResponse.push(data);
       }
 
       if (city[1] !== undefined) {
         const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city[1]}&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
+          `https://api.openweathermap.org/data/2.5/weather?q=${city[1]}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`,
         );
         weatherResponse.push(data);
       }
 
       if (city[2] !== undefined) {
         const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city[2]}&units=metric&appid=8148180ec3c81e66e5f364f1980b484e`,
+          `https://api.openweathermap.org/data/2.5/weather?q=${city[2]}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`,
         );
         weatherResponse.push(data);
       }
