@@ -50,6 +50,7 @@ function App() {
           </div>
           <Swiper
             effect={'cards'}
+            autoplay={true}
             grabCursor={true}
             cardsEffect={{ slideShadows: false, perSlideOffset: 7.5 }}
             modules={[EffectCards]}
