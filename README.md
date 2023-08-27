@@ -6,6 +6,8 @@
 
 **Linters and Formatters :** Eslint, Prettier.
 
+**Additional Library :** Swiper.
+
 **Target :** Цель научится работать с TypeScript, TailwindCSS.
 
 **API :** [weather-api](https://github.com/robertoduessmann/weather-api), [open-weather](https://openweathermap.org/), [gismeteo](https://www.gismeteo.ru/api/#description).
@@ -18,11 +20,14 @@
 - [x] Научиться работать с **TailwindCSS**
 - [x] Реализовать верстку и логику всего проекта
 
+**Problems :**
+
+1. Сделать синхронизацию иконки с текуйщей погодой (+-)
+2. На телефонах, библиотека Swiper ест много
+3. Подкорректировать модалку, карточки
+
 **Expand Application :**
 
 1. `npm/yarn install`
 2. `npm/yarn start`
-
-**Additional(Bags) :**
-
-1. Сделать синхронизацию иконки с текуйщей погодой (+-)
+3. Create file **.env** and add `REACT_APP_WEATHER_KEY=YOUR_KEY_OPENWETAHER`
