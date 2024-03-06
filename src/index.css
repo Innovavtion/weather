@@ -26,9 +26,13 @@ body {
   height: 100%;
 }
 
+#swiper {
+  width: 25rem;
+}
+
 .weather-app-container {
   position: fixed;
-  top: 50%;
+  top: 45%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -38,7 +42,7 @@ body {
 }
 
 .title-text {
-  @apply text-white text-center font-bold text-3xl xl:text-4xl mt-32;
+  @apply text-white text-center font-bold text-3xl xl:text-4xl;
 }
 
 .swiper {
@@ -72,7 +76,7 @@ body {
 .loader {
   animation: loader-animation 1.5s infinite linear;
   position: fixed;
-  right: 46.9%;
+  top: 38%;
 }
 
 @keyframes loader-animation {

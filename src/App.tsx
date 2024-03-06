@@ -36,33 +36,32 @@ function App() {
 
       <div className="weather-app-container">
         <h1 className="title-text">Weather App</h1>
-        <div className="weather-card-container">
-          <div className="flex flex-col justify-center">
+        <Swiper
+          effect={'cards'}
+          autoplay={true}
+          grabCursor={true}
+          cardsEffect={{ slideShadows: false, perSlideOffset: 15 }}
+          initialSlide={1}
+          modules={[EffectCards]}
+          id="swiper"
+          className="weather-card-container relative"
+        >
+          {weather.map((weather, index) => (
+            <SwiperSlide key={index}>
+              <Cards weather={weather} key={index} />
+            </SwiperSlide>
+          ))}
+          <div className="absolute w-full h-5 min-h-3 max-h-50 flex flex-col justify-center items-center top-2/4">
             {/* Простенький лоадер start */}
             {loading && <Icons name={`loader`} color="#ffffff" size={'50'} className="icons-card loader" />}
 
             {/* Простенький вывод error */}
-            {error && <p className="text-center text-red-500 fixed right-[35.8%]">{error}</p>}
+            {error && <p className="text-red-500 fixed">{error}</p>}
 
-            {city.length === 0 && (
-              <p className="text-center text-cyan-300 fixed right-[38.5%]">Добавте город в настройках</p>
-            )}
+            {city.length === 0 && <p className="text-cyan-300">Добавте город в настройках</p>}
           </div>
-          <Swiper
-            effect={'cards'}
-            autoplay={true}
-            grabCursor={true}
-            cardsEffect={{ slideShadows: false, perSlideOffset: 7.5 }}
-            modules={[EffectCards]}
-          >
-            {weather.map((weather, index) => (
-              <SwiperSlide key={index}>
-                <Cards weather={weather} key={index} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-        <Menu modal={modal} setModal={setModal} />
+          <Menu modal={modal} setModal={setModal} />
+        </Swiper>
       </div>
     </>
   );
