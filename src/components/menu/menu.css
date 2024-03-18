@@ -3,6 +3,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+  margin-top: 35px;
 }
 
 .menu-checkbox {
@@ -51,7 +52,7 @@
 }
 
 .menu-checkbox:checked + .menu .button-icon .menu-icon {
-  transition-duration: 750ms;
+  transition-duration: 500ms;
   transform: rotate(135deg) scale(1.25);
 }
 
@@ -66,7 +67,7 @@
 }
 
 .menu-checkbox:checked + .menu .menu-functional {
-  transition-duration: 750ms;
+  transition-duration: 500ms;
   top: -150px;
   visibility: visible;
 }
