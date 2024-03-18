@@ -34,45 +34,29 @@ export function useWeathers(city: Array<string>, setCity: any) {
     localStorage.setItem('city', JSON.stringify([...city, textCity]));
   }
 
-  async function fetchProduct() {
+  async function fetchWeather() {
     try {
       setError('');
       setLoading(true);
       const weatherResponse: Array<IWeatherModels> = [];
 
-      // Выглядит тупо, но через цикл асинхронные запросы не работают, тупо не рендерит компоненты, хотя данные есть
-      if (city[0] !== undefined) {
+      // Асинхронный цикл
+      for await (const currentCity of city) {
         const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`,
-        );
-        weatherResponse.push(data);
-      }
-
-      if (city[1] !== undefined) {
-        const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city[1]}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`,
-        );
-        weatherResponse.push(data);
-      }
-
-      if (city[2] !== undefined) {
-        const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city[2]}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`,
+          `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`,
         );
         weatherResponse.push(data);
       }
 
       setWeather([...weatherResponse]);
-      setLoading(false);
     } catch (e: unknown) {
       const error = e as AxiosError;
-      setLoading(false);
       setError(error.message);
     }
   }
 
   useEffect(() => {
-    fetchProduct();
+    fetchWeather().finally(() => setLoading(false));
   }, []);
 
   return { weather, error, loading, deleteCity, addCity };
