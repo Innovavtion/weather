@@ -1,4 +1,4 @@
-import React from 'react'; // Можно убрать, так как с 18 верси React это можно не указывать. Оставлю если нужно будет добавить хуки.
+import { useState } from 'react';
 
 import Icons from '../icons/icons';
 
@@ -8,8 +8,7 @@ interface IModal {
 }
 
 function Menu({ modal, setModal }: IModal) {
-  //Вот и хук собственна.
-  const [check, setCheck] = React.useState<boolean>(false);
+  const [check, setCheck] = useState<boolean>(false);
 
   return (
     <div className="menu-container">

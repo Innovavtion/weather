@@ -17,6 +17,7 @@
     "jsx": "react-jsx" // Поддержка JSX в файлах .tsx
   },
   "include": [
-    "src" // Файлы TypeScript должны ввести проверку
+    "src", // Файлы TypeScript должны ввести проверку
+    "react-app-env.d.ts"
   ]
 }

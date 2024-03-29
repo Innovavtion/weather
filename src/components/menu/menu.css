@@ -1,9 +1,12 @@
 /* Style and Animation for menu */
+.menu-container {
+  @apply mt-0 sm:mt-12;
+}
+
 .menu {
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin-top: 35px;
 }
 
 .menu-checkbox {

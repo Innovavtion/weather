@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'; // Можно убрать, так как с 18 верси React это можно не указывать. Оставлю если нужно будет добавить хуки.
-import { IWeatherModels } from '../models';
+import { IWeatherModels } from '../types/typeWeather';
 import axios, { AxiosError } from 'axios';
 
 // Логика app.tsx / Кастомный хук app.tsx
 
-export function useWeathers(city: Array<string>, setCity: any) {
+export function useWeathers(city: Array<string>, setCity: (city: Array<string>) => void) {
   const [weather, setWeather] = useState<IWeatherModels[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

@@ -3,7 +3,7 @@
 }
 
 .weather-card {
-  background-image: url(../../../public/background-card.jpg);
+  background-image: url(../../assets/background-card.jpg);
   background-size: 135%;
   background-position: top;
   background-repeat: no-repeat;

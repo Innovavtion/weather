@@ -1,8 +1,6 @@
-import React from 'react'; // Можно убрать, так как с 18 верси React это можно не указывать. Оставлю если нужно будет добавить хуки.
-
 import Icons from '../icons/icons';
 
-import { IWeatherModels } from '../../models';
+import { IWeatherModels } from '../../types/typeWeather';
 
 interface CardProps {
   weather: IWeatherModels;

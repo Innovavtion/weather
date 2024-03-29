@@ -39,11 +39,11 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   /* Это дерективы - нужны чтобы небыло срача в классах компонентов (tailwind)*/
-  @apply flex-col flex items-center space-y-6 lg:space-y-0 xll:space-y-12;
+  @apply flex-col flex items-center;
 }
 
 .title-text {
-  @apply text-white text-center font-bold text-3xl xl:text-4xl;
+  @apply text-white text-center font-bold text-3xl xl:text-4xl mb-0 sm:mb-12;
 }
 
 .swiper {
@@ -61,17 +61,19 @@ body {
 }
 
 /* Для горизонтальной адаптивки телефона*/
-@media screen and (min-width: 320px) and (max-width: 920px) and (orientation: landscape) {
-  body {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 50%;
+/*
+  @media screen and (min-width: 320px) and (max-width: 920px) and (orientation: landscape) {
+    body {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+    }
   }
-}
+*/
 
 /* Простенькая анимация для лоадера */
 .loader {

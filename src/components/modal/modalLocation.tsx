@@ -66,16 +66,16 @@ export default function modalLocation({ modal, city, setModal, deleteCity, addCi
             <Icons name="close" color="#ffffff" size="20" />
           </button>
           <div className="flex justify-center text-white font-bold mb-5 text-xl">Настройки отображаемых городов</div>
-          <div className="flex mb-3">
+          <div className="flex flex-wrap sm:flex-nowrap mb-3 justify-center">
             <input
-              className="w-full rounded px-3 py-1 border-0"
+              className="w-full rounded px-3 py-2 border-0 focus:outline-none"
               placeholder="Введите название города"
               value={text}
               onKeyDown={(e) => e.key === 'Enter' && addNewCity(text)}
               onChange={(e) => changeText(e.target.value)}
             />
             <button
-              className="flex justify-center bg-gray-700 text-white rounded p-2 ml-0.5"
+              className="flex justify-center bg-gray-700 text-white rounded p-2 sm:ml-0.5 mt-1 w-full sm:w-auto sm:mt-0"
               onClick={() => {
                 addNewCity(text);
               }}
@@ -90,7 +90,7 @@ export default function modalLocation({ modal, city, setModal, deleteCity, addCi
           {symbolText && (
             <p className="text-center text-red-500 text-xs mb-2">{`Только на кирилице, а также тере для городов с пробелом`}</p>
           )}
-          <div className="flex justify-center text-white font-bold">Список добавленных городов</div>
+          <div className="flex justify-center text-white font-bold mt-5">Список добавленных городов</div>
           <div className="flex justify-center text-white text-xs mb-2">Максимум 3 города</div>
           <div className="text-white">
             {city.map((item: string, index) => {
